@@ -26,7 +26,9 @@ class User(CreateUpdateTracker):
     is_blocked_bot = models.BooleanField(default=False)
 
     is_admin = models.BooleanField(default=False)
-
+    email = models.EmailField(null=True, blank=True)
+    subscription = models.BooleanField(default=False)
+    subscription_expiration_date = models.DateField(null=True, blank=True)
     objects = GetOrNoneManager()  # user = User.objects.get_or_none(user_id=<some_id>)
     admins = AdminUserManager()  # User.admins.all()
 
